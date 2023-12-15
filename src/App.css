@@ -3,29 +3,17 @@
   justify-content: space-between;
 }
 
-.left-half,
-.right-half {
-  align-items: center;
-  flex: 1;
-  padding: 10px;
-  width: fit-content;
-  height: 97vh; /* Adjust the height as needed */
-}
-
-.scroll-container {
-  height: 100%; /* Take up the full height of the parent container */
-  overflow-y: auto; /* Enable vertical scrolling when content overflows */
-}
 
 /* Media query for responsive design */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .App {
-    flex-direction: column; /* On smaller screens, stack them vertically */
+    flex-direction: column;  On smaller screens, stack them vertically 
   }
 
   .left-half,
   .right-half {
-    width: 100%; /* Make them take up full width on smaller screens */
-    margin-bottom: 10px; /* Optional: Add spacing between them */
+    width: 100%; Make them take up full width on smaller screens 
+    margin-bottom: 10px;  Optional: Add spacing between them
   }
-}
+} 
+*/

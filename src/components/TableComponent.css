@@ -1,0 +1,50 @@
+/* Table styles */
+.custom-table {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-collapse: collapse;
+  width: 95%;
+  height: 95%;
+}
+
+/* Header row styles */
+.custom-table th {
+  border: 1px solid #495057;
+  background-color: rgb(109, 123, 134);
+  color: #ffffff;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Data row styles */
+.custom-table td {
+  border: 1px solid #ced4da;
+  padding: 9px;
+  text-align: left;
+  white-space: nowrap;
+  max-width: 175px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scrollContainer {
+  height: 95vh;
+  flex: none;
+  overflow-y: auto;
+}
+
+/* Even row styles */
+.even-row {
+  background-color: #f8f9fa;
+}
+
+/* Odd row styles */
+.odd-row {
+  background-color: #ffffff;
+}
+
+/* Hovered row styles */
+.hov-row {
+  background-color: rgb(226, 235, 243);
+}
