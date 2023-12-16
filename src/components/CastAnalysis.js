@@ -6,6 +6,7 @@ import './CastAnalysis.css';
 import Chart from 'chart.js/auto';
 import { useLocation } from 'react-router-dom';
 
+
 function CastAnalysis () {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -13,8 +14,12 @@ function CastAnalysis () {
   const [district, setDistrict] = useState(null);
   const [filePath, setFilePath] = useState('/data/DropRate21_22.json');
   const [tableData, setTableData] = useState([]);
-  const canvasRef = useRef(null);
-  const chartInstance = useRef(null);
+  const canvasRef1 = useRef(null);
+  const canvasRef2 = useRef(null);
+  const canvasRef3 = useRef(null);
+  const chartInstance1 = useRef(null);
+  const chartInstance2 = useRef(null);
+  const chartInstance3 = useRef(null);
 
   const handleYearChange = (event) => {
     const year = event.target.value;
@@ -27,7 +32,7 @@ function CastAnalysis () {
         const response = await fetch(filePath);
         const json = await response.json();
         setTableData(json);
-        setDistrict(json[districtRowNum]['Location']);
+        setDistrict(json[districtRowNum-4]['Location']);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -42,18 +47,25 @@ function CastAnalysis () {
       const scIndex = generalIndex + 2;
       const stIndex = generalIndex + 3;
 
-      if (chartInstance.current) {
-        chartInstance.current.destroy();
+      if (chartInstance1.current) {
+        chartInstance1.current.destroy();
       }
+      if (chartInstance2.current) {
+        chartInstance2.current.destroy();
+      }
+      if (chartInstance3.current) {
+        chartInstance3.current.destroy();
+      }
+      
 
-      const ctx1 = document.getElementById('chart1').getContext('2d');
-      const ctx2 = document.getElementById('chart2').getContext('2d');
-      const ctx3 = document.getElementById('chart3').getContext('2d');
+      const ctx1 = canvasRef1.current.getContext('2d');
+      const ctx2 = canvasRef2.current.getContext('2d');
+      const ctx3 = canvasRef3.current.getContext('2d');
 
       const data1 = {
-        labels: ['General', 'OBC', 'SC', 'ST'],
+        labels: [tableData[generalIndex]['Social Category'],tableData[obcIndex]['Social Category'],tableData[scIndex]['Social Category'],tableData[stIndex]['Social Category']],
         datasets: [{
-          label: 'Overall 1',
+          label: 'Primary',
           data: [
             tableData[generalIndex]['Overall_1'],
             tableData[obcIndex]['Overall_1'],
@@ -77,9 +89,9 @@ function CastAnalysis () {
       };
 
       const data2 = {
-        labels: ['General', 'OBC', 'SC', 'ST'],
+        labels: [tableData[generalIndex]['Social Category'],tableData[obcIndex]['Social Category'],tableData[scIndex]['Social Category'],tableData[stIndex]['Social Category']],
         datasets: [{
-          label: 'Overall 2',
+          label: 'Higher Primary',
           data: [
             tableData[generalIndex]['Overall_2'],
             tableData[obcIndex]['Overall_2'],
@@ -103,9 +115,9 @@ function CastAnalysis () {
       };
 
       const data3 = {
-        labels: ['General', 'OBC', 'SC', 'ST'],
+        labels: [tableData[generalIndex]['Social Category'],tableData[obcIndex]['Social Category'],tableData[scIndex]['Social Category'],tableData[stIndex]['Social Category']],
         datasets: [{
-          label: 'Overall 3',
+          label: 'Secondary',
           data: [
             tableData[generalIndex]['Overall_3'],
             tableData[obcIndex]['Overall_3'],
@@ -128,52 +140,58 @@ function CastAnalysis () {
         }]
       };
 
-      chartInstance.current = new Chart(ctx1, {
+      chartInstance1.current = new Chart(ctx1, {
         type: 'polarArea',
         data: data1,
         options: {
           responsive: true,
+          maintainAspectRatio: false,
+          aspectRatio: 1, 
           plugins: {
             legend: {
               position: 'top',
             },
             title: {
               display: true,
-              text: 'Overall 1'
+              text: 'Primary'
             }
           }
         }
       });
 
-      chartInstance.current = new Chart(ctx2, {
+      chartInstance2.current = new Chart(ctx2, {
         type: 'polarArea',
         data: data2,
         options: {
           responsive: true,
+          maintainAspectRatio: false,
+          aspectRatio: 1, 
           plugins: {
             legend: {
               position: 'top',
             },
             title: {
               display: true,
-              text: 'Overall 2'
+              text: 'Higher Primary'
             }
           }
         }
       });
 
-      chartInstance.current = new Chart(ctx3, {
+      chartInstance3.current = new Chart(ctx3, {
         type: 'polarArea',
         data: data3,
         options: {
           responsive: true,
+          maintainAspectRatio: false,
+          aspectRatio: 1, 
           plugins: {
             legend: {
               position: 'top',
             },
             title: {
               display: true,
-              text: 'Overall 3'
+              text: 'Secondary'
             }
           }
         }
@@ -199,9 +217,15 @@ function CastAnalysis () {
       </div>
       <h2>{district}</h2>
       <div className="chart-container">
-        <canvas id="chart1" ref={canvasRef}></canvas>
-        <canvas id="chart2" ref={canvasRef}></canvas>
-        <canvas id="chart3" ref={canvasRef}></canvas>
+        <div className='polarChart'>
+          <canvas id="chart1" ref={canvasRef1}></canvas>
+        </div>
+        <div className='polarChart'>
+          <canvas id="chart2" ref={canvasRef2}></canvas>
+        </div>
+        <div className='polarChart'>
+          <canvas id="chart3" ref={canvasRef3}></canvas>
+        </div>
       </div>
     </div>
   );

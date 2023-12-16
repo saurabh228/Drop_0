@@ -6,3 +6,17 @@
 h1{
     margin: 0px;
 }
+
+.dropdown-container {
+    margin-bottom: 20px;
+  }
+
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .polarChart {
+    width: 100%;
+    margin: 0 auto;
+  }
