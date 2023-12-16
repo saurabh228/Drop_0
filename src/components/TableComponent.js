@@ -6,6 +6,7 @@ const TableComponent = ({ onRowHover, filePath}) => {
   const [clickedRow, setClickedRow] = useState(null);
   const [tableData, setTableData] = useState([]);
   const [fetchingStatus, setFetchingStatus] = useState('Fetching files...');
+  
   const handleRowHover = (rowIndex,rowNum) => {
     if(rowIndex >= 0 && rowIndex < 34 && clickedRow===null) {
       setHoveredRow(rowIndex);
@@ -44,6 +45,29 @@ const TableComponent = ({ onRowHover, filePath}) => {
   const filteredTableData = tableData.filter((item) => {
     return ( item['Social Category'] === 'Overall');
   });
+
+  const [sortConfig, setSortConfig] = useState({
+    key: 'Location',
+    direction: 'ascending',
+  });
+
+  const handleSort = (key) => {
+    let direction = 'ascending';
+    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+      direction = 'descending';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const sortedTableData = [...filteredTableData].sort((a, b) => {
+    if (a[sortConfig.key] < b[sortConfig.key]) {
+      return sortConfig.direction === 'ascending' ? -1 : 1;
+    }
+    if (a[sortConfig.key] > b[sortConfig.key]) {
+      return sortConfig.direction === 'ascending' ? 1 : -1;
+    }
+    return 0;
+  });
   
 
   return (
@@ -58,25 +82,25 @@ const TableComponent = ({ onRowHover, filePath}) => {
           <th colSpan={3}>Secondary</th>
         </tr>
         <tr>
-            <th>Location</th>
-            <th>Girls</th>
-            <th>Boys</th>
-            <th>Overall</th>
-            <th>Girls</th>
-            <th>Boys</th>
-            <th>Overall</th>
-            <th>Girls</th>
-            <th>Boys</th>
-            <th>Overall</th>
+            <th onClick={() => handleSort('Location')} className={sortConfig.key === 'Location' ? sortConfig.direction : ''} >Location</th>
+            <th onClick={() => handleSort('Girls_1')} className={sortConfig.key === 'Girls_1' ? sortConfig.direction : ''} >Girls</th>
+            <th onClick={() => handleSort('Boys_1')} className={sortConfig.key === 'Boys_1' ? sortConfig.direction : ''} >Boys</th>
+            <th onClick={() => handleSort('Overall_1')} className={sortConfig.key === 'Overall_1' ? sortConfig.direction : ''} >Overall</th>
+            <th onClick={() => handleSort('Girls_2')} className={sortConfig.key === 'Girls_2' ? sortConfig.direction : ''} >Girls</th>
+            <th onClick={() => handleSort('Boys_2')} className={sortConfig.key === 'Boys_2' ? sortConfig.direction : ''} >Boys</th>
+            <th onClick={() => handleSort('Overall_2')} className={sortConfig.key === 'Overall_2' ? sortConfig.direction : ''} >Overall</th>
+            <th onClick={() => handleSort('Girls_3')} className={sortConfig.key === 'Girls_3' ? sortConfig.direction : ''} >Girls</th>
+            <th onClick={() => handleSort('Boys_3')} className={sortConfig.key === 'Boys_3' ? sortConfig.direction : ''} >Boys</th>
+            <th onClick={() => handleSort('Overall_3')} className={sortConfig.key === 'Overall_3' ? sortConfig.direction : ''} >Overall</th>
           </tr>
-        {filteredTableData.map((item, rowIndex) => (
+        {sortedTableData.map((item, rowIndex) => (
             <tr key={rowIndex}
               className={rowIndex === hoveredRow ? 'hov-row' : (rowIndex % 2 === 0 ? 'even-row' : 'odd-row')}
                 
                   onClick={()=>  handleRowClick(rowIndex,item.Index -1)}
                   onMouseEnter={() => handleRowHover(rowIndex,item.Index -1)}
             >
-              <td>{item.Location}</td>
+              <td className={ item.Location === '_Overall_' ? 'overallRate' : ''}>{item.Location}</td>
               <td>{item.Girls_1}</td>
               <td>{item.Boys_1}</td>
               <td>{item.Overall_1}</td>
