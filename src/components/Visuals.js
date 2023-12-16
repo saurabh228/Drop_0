@@ -7,18 +7,12 @@ import GenderYearGraph from './GenderYearGraph';
 
 
 function Visuals() {
-    const [selectedRow, setSelectedRow] = useState(null);
+    const [selectedRow, setSelectedRow] = useState(169);
     const [selectedYear, setSelectedYear] = useState('/data/DropRate21_22.json');
 
     const handleRowHover = (rowNum) => {
         setSelectedRow(rowNum);
     };
-
-
-    const getFilePath = () => `${selectedYear}`;
-
-    const [tableFilePath, setTableFilePath] = useState(getFilePath());
-    const [chartFilePath, setChartFilePath] = useState(getFilePath());
 
     const handleYearChange = (event) => {
       const year = event.target.value;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Link } from 'react-router-dom';
 import './ChartComponent.css';
 import Chart from 'chart.js/auto';
 
@@ -52,7 +52,7 @@ const ChartComponent = ({ selectedRow,filePath }) => {
 
     const updateChart = () => {
       if(selectedRow === null){
-        selectedRow = 169;
+        selectedRow = 168;
       }
       const districtIndex =   selectedRow - 4;
       setDistrict(tableData[districtIndex]['Location']);
@@ -132,9 +132,12 @@ const ChartComponent = ({ selectedRow,filePath }) => {
 
   return (
     <div className='chart'>
-      <h4>{district}</h4>
+      <div className= 'getAnalysis'>
+        <h4 className='div1'>{district}</h4> 
+        <Link to={{ pathname: "/CastAnalysis", search: `?district=${selectedRow}` }} className='button-link'>Get Cast Analysis</Link>
+      </div>
       <div>
-          <canvas ref={canvasRef} width="650" height="300"></canvas>
+        <canvas ref={canvasRef} width="650" height="300"></canvas>
       </div>
     </div>
   );

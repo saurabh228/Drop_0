@@ -2366,7 +2366,7 @@
   "Overall_3": 23.85
  },
  {
-  "Location": "Total",
+  "Location": "_Overall_",
   "Index": 170,
   "Social Category": "Overall",
   "Girls_1": 1.07,
@@ -2378,8 +2378,5 @@
   "Girls_3": 19.81,
   "Boys_3": 22.85,
   "Overall_3": 21.61
- },
- {
-  "Location": ".."
  }
 ]
