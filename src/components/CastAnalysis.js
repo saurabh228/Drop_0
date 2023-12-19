@@ -229,7 +229,7 @@ function CastAnalysis () {
 
 
       <div className='dropdown-container'>
-        <label htmlFor="yearDropdown" className="dropdown-button">Dropout Rates for Year</label>
+        <label htmlFor="yearDropdown" className="dropdown-button">Dropouts for</label>
         <select id="yearDropdown" value={filePath} onChange={handleYearChange} className="dropdown-content">
           <option value="/data/DropRate14_15.json">2014-2015</option>
           <option value="/data/DropRate15_16.json">2015-2016</option>
