@@ -1,10 +1,11 @@
 import React from 'react'
 import transition from '../Transition'
+import CastAnalysis from './CastAnalysis';
 
 const Caste = () => {
   return (
     <div className='body_container'>
-      <h1>Caste</h1>
+      <CastAnalysis/>
     </div>
   )
 }

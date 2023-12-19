@@ -2,8 +2,8 @@
 .App{
   display: flex;
   font-family: 'IBM Plex Sana Thai Looped', sans-serif;
-  color: azure;
-  background: linear-gradient(60deg, #176B87, #04364A);
+  color: rgb(74, 75, 75);
+  background: linear-gradient(60deg, #f7f9fa, #cbe3ed);
 }
 .body_container{
   flex: 1;
@@ -26,27 +26,27 @@
 }
 .sidebar{
   display: flex;
-  background: #04364A;
-  width: 16rem;
-  height: 95%;
+  background: #a1c0cd;
+  width: 12rem;
+  height: 85%;
   justify-content: start;
   align-items: start;
   flex-direction: column;
- 
-  padding: 15px;
+  overflow: auto;
+  padding: 14px;
   margin: 5px;
-  background: rgba(4, 54, 74, 0.5);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(170, 193, 202, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(67, 69, 98, 0.37);
   backdrop-filter: blur(8.5px);
   border-radius: 10px;
-  border: 1px solid rgba(183, 183, 183, 0.38);
+  border: 1px solid rgba(196, 194, 194, 0.38);
 
 }
 
 .profile{
   display: flex;
   align-items: center;
-  width: 10rem;
+  width: 7 rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
   align-self: center;
@@ -66,7 +66,8 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 30px;
+  
 
 }
 
@@ -76,15 +77,15 @@
   align-items: center;
   flex-direction: column;
   margin: 8px;
-  padding: 3px;
+  padding: 4px;
   border-radius: 14px;
   
 }
 
 .side-link{
-  padding: 22px 20px;
+  padding: 18px 18px;
   text-decoration: none;
-  color: rgb(100, 200, 120);
+  color: rgb(49, 65, 52);
 }
 
 .slide-in{
@@ -92,7 +93,7 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 83%;
+  width: 87%;
   backdrop-filter:blur(8.5px) ;
   background: #04364A;
   transform-origin: right;
@@ -103,7 +104,7 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 83%;
+  width: 87%;
   background: #04364A;
   backdrop-filter:blur(8.5px) ;
   transform-origin: left;
