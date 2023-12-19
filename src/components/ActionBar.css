@@ -1,0 +1,56 @@
+.actionbar_container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .static-column {
+    display: flex;
+    background: #a1c0cd;
+    width: 18rem;
+    height: 85%;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    overflow: auto;
+    padding: 14px;
+    margin: 5px;
+    background: rgba(170, 193, 202, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(67, 69, 98, 0.37);
+    backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(196, 194, 194, 0.38);
+  }
+  
+
+  
+  .side-items {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .side-itemA {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    flex-direction: column;
+    margin: 8px;
+    padding: 4px;
+    border-radius: 14px;
+  }
+  
+  .side-link {
+    padding: 18px 18px;
+    margin-top: 1px;
+    text-decoration: none;
+    color: rgb(49, 65, 52);
+  }
+  

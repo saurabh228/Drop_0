@@ -43,7 +43,7 @@ const Sidebar = () => {
                 transition={{duration: 0.1}}
             className="side-item">
                 <Link className='side-link' to="/">
-                    Home
+                    Insights
                 </Link>
             </motion.div>
 
@@ -61,7 +61,7 @@ const Sidebar = () => {
                      transition={{duration: 0.1}}
                      className="side-item">
                 <Link className='side-link' to="/age">
-                    Age
+                    Dashboard
                 </Link>
             </motion.div>
 
@@ -134,6 +134,24 @@ const Sidebar = () => {
             className="side-item">
                 <Link className='side-link' to="/region">
                     Region
+                </Link>
+            </motion.div>
+
+            <motion.div 
+             layout
+             whileHover={{
+                 backgroundColor: "rgba(255, 255, 255, 0.3)",
+                 boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+                 backdropFilter: "blur(8.5px)",
+                 WebkitBackdropFilter: "blur(8.5px)",
+                 borderRadius: "9px",
+                 border: "1px solid rgba(255, 255, 255, 0.38)",
+                 cursor: 'pointer'
+                 }}
+                 transition={{duration: 0.1}}
+            className="side-item">
+                <Link className='side-link' to="/income">
+                    Income
                 </Link>
             </motion.div>
 
