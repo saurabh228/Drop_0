@@ -24,7 +24,10 @@
     width: 67%;
     height: 100vh; /* Adjust the height as needed */
   }
-  
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
   
   /* Media query for responsive design */
   @media (max-width: 768px) {

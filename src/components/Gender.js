@@ -6,7 +6,8 @@ const Gender = () => {
   return (
     <div>
       <ActionBarG/>
-      <h1 className='PgTitle'>Gender</h1>
+      <h1 className='PgTitle'>Gender</h1>/
+      
      
     </div>
   )

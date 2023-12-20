@@ -1,27 +1,43 @@
+/* Gujarat.css */
+
+.Map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10rem;
+  }
+  .dropdown-button{
+    margin-left: 5rem;
+    align-items: center;
+  }
+  
+  .size {
+    margin: auto;
+  }
+
+
 
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import Slider from 'rc-slider';
 import gujaratTopojson from './gujarat.json';
-import { scaleLinear, interpolateRgb } from 'd3';
 import './Gujarat.css';
-import AIModule from './AIModule';
 
-const GujaratMap = ({setDistrict}) => {
+const GujaratMap = () => {
   const svgRef = useRef(null);
   const [districtRowNum, setDistrictRowNum] = useState(null);
   const [tableData, setTableData] = useState([]);
+  const [district, setDistrict] = useState("Gujarat");
   const [filePath, setFilePath] = useState('/data/DropRate21_22.json');
-  const [selectedYear, setSelectedYear] = useState(2022);
 
   const gujaratGeojson = useMemo(() => {
     return topojson.feature(gujaratTopojson, gujaratTopojson.objects.districts);
   }, []);
 
-  const handleYearChange = (year) => {
-    setSelectedYear(year);
-    setFilePath(`/data/DropRate${(year%100 )- 1}_${year % 100}.json`);
+  const handleYearChange = (event) => {
+    const year = event.target.value;
+    setFilePath(year);
   };
 
   useEffect(() => {
@@ -53,9 +69,6 @@ const GujaratMap = ({setDistrict}) => {
 
     // Find the maximum value of "Overall_3" in the tableData
     const maxValue = Math.max(...tableData.map(entry => entry["Overall_3"]));
-    
-    const colorScale = d3.scaleLinear().domain([0, maxValue]).range([0, 1]);  // The color range for gradient
-
 
 
     svg
@@ -67,60 +80,56 @@ const GujaratMap = ({setDistrict}) => {
       .attr('fill', 'white')
       .attr('stroke', 'steelblue')
       .attr('stroke-width', '1')
-      .attr('fill', (d) => {
-        const value = tableData[d.properties.dt_code]
-          ? tableData[d.properties.dt_code]['Overall_3']
-          : 0;
-        const normalizedValue = colorScale(value);
-        return d3.interpolateRgb('#e0f3db', '#43a2ca')(normalizedValue);
-      })
       .on('mouseover', (event, d) => {
         d3.select(event.target).attr('fill', 'rgba(0, 200, 200, 1');
         setDistrictRowNum(d.properties.dt_code);
       })
       .on('mouseout', (event) => {
-        const value = tableData[event.target.__data__.properties.dt_code]
-          ? tableData[event.target.__data__.properties.dt_code]['Overall_3']
-          : 0;
-        const normalizedValue = colorScale(value);
-        d3.select(event.target).attr('fill', d3.interpolateRgb('#e0f3db', '#43a2ca')(normalizedValue))
-        .on('click', (event, d) => {
-          setDistrict(tableData[d.properties.dt_code]?.Location || "Gujarat");
-          // <AIModule/>
+        d3.select(event.target).attr('fill', (d) => {
+          const opacity = tableData[d.properties.dt_code] ? tableData[d.properties.dt_code]["Overall_3"] / maxValue : 0;
+          return `rgba(255, 0, 0, ${opacity})`;
         });
-
-        setDistrictRowNum(null);
+        // setDistrictRowNum(null);
       })
-      .append('title')  // Add title element for tooltip
-      .text((d) => tableData[d.properties.dt_code]?.Location || "");
-
-      // Apply CSS to make the title immediately accessible
-      svg.selectAll('path title').style('pointer-events', 'none');
+      .style('fill', (d) => {
+        const opacity = tableData[d.properties.dt_code] ? tableData[d.properties.dt_code]["Overall_3"] / maxValue : 0;
+        return `rgba(255, 0, 0, ${opacity})`;
+      });
 
   }, [gujaratGeojson, tableData]);
 
 
+  useEffect(() => {
+    if (districtRowNum !== null && tableData.length > 0) {
+      setDistrict(tableData[districtRowNum]?.Location || "Gujarat");
+    }
+  }, [districtRowNum, tableData]);
+
   return (
-    <div >
-      <div className='slider-container'>
-        <label htmlFor="yearSlider" className="slider-label">Choose Year</label>
-        <Slider
-          id="yearSlider"
-          min={2015}
-          max={2022}
-          step={1}
-          value={selectedYear}
-          marks={{ 2015: '2015', 2016: '2016', 2017: '2017', 2018: '2018', 2019: '2019', 2020: '2020', 2021: '2021',  2022: '2022' }}
-          onChange={handleYearChange}
-          className="custom-slider"
-        />
+    <div className='Map'>
+       <div className='dropdown-container'>
+        <label htmlFor="yearDropdown" className="dropdown-button">Dropout Rates for Year</label>
+        <select id="yearDropdown" value={filePath} onChange={handleYearChange} className="dropdown-content">
+          <option value="/data/DropRate14_15.json">2014-2015</option>
+          <option value="/data/DropRate15_16.json">2015-2016</option>
+          <option value="/data/DropRate16_17.json">2016-2017</option>
+          <option value="/data/DropRate17_18.json">2017-2018</option>
+          <option value="/data/DropRate18_19.json">2018-2019</option>
+          <option value="/data/DropRate19_20.json">2019-2020</option>
+          <option value="/data/DropRate20_21.json">2020-2021</option>
+          <option value="/data/DropRate21_22.json">2021-2022</option>
+        </select>
       </div>
-      <svg className='Map'
+      <div className="size">
+      <svg
         ref={svgRef}
-        width="150%"
-        height="150%"
+        width="200%"
+        height="200%"
         viewBox={`0 0 800 800`}
       ></svg>
+      <h3>{district}</h3>
+      </div>
+      
     </div>
   );
 };

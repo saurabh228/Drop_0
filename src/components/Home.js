@@ -14,7 +14,7 @@ const Home = () => {
       < div className="tilecol1">
       <div className="tile1">
        <div className="tile1-item">
-        <h1>Tile1</h1>  
+        {/* <h1>Tile1</h1>   */}
          </div>
          </div>
 

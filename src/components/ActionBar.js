@@ -5,8 +5,11 @@ import './ActionBar.css';
 import BestPerformers from './BestPerformers';
 import CriticalDist from './CriticalDist';
 import Interventions from './Interventions';
+import AIModule from './AIModule';
+import ConvertToTitleCase from './ConvertToTitleCase';
 
-const ActionBar = () => {
+
+const ActionBar = ({district}) => {
   return (
     <div className='ActionBar_container'>
       <div className='static-column'>
@@ -18,7 +21,10 @@ const ActionBar = () => {
           </div>
 
           <div className="TitleIns">
-          <Interventions/>
+          <h1>Interventions </h1>
+
+        <ConvertToTitleCase inputWord={district} />
+          <AIModule userInput = {<ConvertToTitleCase inputWord={district} />}/>
            
           </div>
 

@@ -1,4 +1,4 @@
-.ActionBar_container {
+.ABDActionBar_container {
     position: fixed;
     top: 0;
     right: 0;
@@ -9,12 +9,7 @@
     align-items: center;
   }
 
-  .InsightTitle{
-    padding: 10px;
-    margin-bottom: 10px;
-    
-  }
-  .static-column {
+  .ABDstatic-column {
     display: flex;
     background: #a1c0cd;
     width: 26rem;
@@ -33,23 +28,16 @@
     border: 1px solid rgba(196, 194, 194, 0.38);
   }
   
-.TitlePC{
+.ABDTitlePC{
   padding: 25px;
-  margin: 5px;
+  margin: 10px;
   background: rgba(116, 207, 198, 0.204);
   backdrop-filter: blur(6.5px);
   border-radius: 10px;
   border: 1px solid rgba(196, 194, 194, 0.38);
-  width: 20rem;
 }
 
-.Response{
-  white-space: pre-line;
-  font-family: 'IBM Plex Sana Thai Looped', sans-serif;
-  text-align: justify;
-  font-weight: bold;
-}
-.TitleIns{
+.ABDTitleIns{
   padding: 25px;
   margin: 10px;
   background: rgba(97, 208, 160, 0.505);
@@ -59,7 +47,7 @@
   width: 20rem;
 }
   
-  .action-items {
+  .ABDaction-items {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -67,7 +55,7 @@
     
   }
   
-  .side-itemA {
+  .ABDside-itemA {
     display: flex;
     width: 90%;
     align-items: center;
@@ -77,7 +65,7 @@
     border-radius: 14px;
   }
   
-  .side-link {
+  .ABDside-link {
     padding: 18px 18px;
     margin-top: 1px;
     text-decoration: none;

@@ -2,6 +2,7 @@ import React from 'react';
 import './ActionBarI.css';
 import BestPerformers from './BestPerformers';
 import CriticalDist from './CriticalDist';
+import CatModule from './CatModule';
 
 const ActionBarI = () => {
   return (
@@ -15,7 +16,8 @@ const ActionBarI = () => {
           </div>
 
           <div className="ABITitlePC">
-            
+            <h1>Social Insights</h1>
+            <CatModule/>
           </div>
 
           <div className="ABITitleIns">
