@@ -208,7 +208,7 @@ function CastAnalysis () {
 
   return (
     <div className='Analysis'>
-      <h1>Caste Analysis</h1>
+      <h1 className='PgTitle'>Caste Analysis</h1>
       <div className='selecters'>
 
       <div className='dropdown-container'>

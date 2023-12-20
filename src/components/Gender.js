@@ -1,11 +1,13 @@
 import React from 'react'
 import transition from '../Transition'
+import ActionBarG from './ActionBarG'
 
 const Gender = () => {
   return (
-    <div className='body_container'>
-      <h1>Gender</h1>
-      
+    <div>
+      <ActionBarG/>
+      <h1 className='PgTitle'>Gender</h1>
+     
     </div>
   )
 }

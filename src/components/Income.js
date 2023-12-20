@@ -4,7 +4,7 @@ import transition from '../Transition'
 const Income = () => {
   return (
     <div className='body_container'>
-      <h1>Income</h1>
+      <h1 className='PgTitle'>Income</h1>
     </div>
   )
 }
