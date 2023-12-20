@@ -1,11 +1,13 @@
 import React from 'react'
 import transition from '../Transition'
 import Visuals from './Visuals';
+import ActionBarD from './ActionBarD';
 
 
 const Age = () => {
   return (
-    <div className='body_container'>
+    <div>
+      <ActionBarD/>
       <Visuals />
       
     </div>

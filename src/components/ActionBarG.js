@@ -2,7 +2,8 @@ import React from 'react';
 import './ActionBarG.css';
 import BestPerformers from './BestPerformers';
 import CriticalDist from './CriticalDist';
-
+import CatModule from './CatModule';
+import GenderModule from './GenderModule';
 const ActionBarG = () => {
   return (
     <div className='ActionBar_container'>
@@ -14,13 +15,16 @@ const ActionBarG = () => {
              <h1>🧠Action Lab</h1>
           </div>
 
+         
+
+          <div className="TitleIns">
+            <h1>Insights</h1>
+           <GenderModule/>
+          </div>
+
           <div className="TitlePC">
             <BestPerformers/>
             <CriticalDist/>
-          </div>
-
-          <div className="TitleIns">
-           
           </div>
 
           <div className="side-itemA">

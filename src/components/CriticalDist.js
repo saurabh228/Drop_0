@@ -19,7 +19,7 @@ const CriticalDist = () => {
       <table className="critical-table">
         <thead>
           <tr>
-            <th colSpan="3" className='CriticalTitle'>Critical Cases</th>
+            <th colSpan="3" className='CriticalTitle'>Critical Districts</th>
           </tr>
         </thead>
         <tbody className='tbody'>

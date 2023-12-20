@@ -61,7 +61,7 @@ const Sidebar = () => {
                      transition={{duration: 0.1}}
                      className="side-item">
                 <Link className='side-link' to="/age">
-                    Dashboard
+                    Age
                 </Link>
             </motion.div>
 
