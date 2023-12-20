@@ -11,7 +11,6 @@ import Region from './Components/Region';
 import CastAnalysis from './Components/CastAnalysis';
 
 import { AnimatePresence } from 'framer-motion';
-import ActionBar from './Components/ActionBar';
 
 function App() {
 
@@ -32,7 +31,6 @@ function App() {
           <Route/>
         </Routes>
         </AnimatePresence>
-        <ActionBar />
 
         
     </div>

@@ -25,6 +25,9 @@
   top: 0;
   left: 0;
 }
+.PgTitle{
+  margin: 40px;
+}
 .sidebar{
   display: flex;
   background: #a1c0cd;
@@ -36,6 +39,7 @@
   overflow: auto;
   padding: 14px;
   margin: 5px;
+  margin-left: 15px;
   background: rgba(170, 193, 202, 0.5);
   box-shadow: 0 8px 32px 0 rgba(67, 69, 98, 0.37);
   backdrop-filter: blur(8.5px);
@@ -95,7 +99,7 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 87%;
+  width: 86%;
   backdrop-filter:blur(8.5px) ;
   background: #04364A;
   transform-origin: right;
@@ -106,7 +110,7 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 87%;
+  width: 86%;
   background: #04364A;
   backdrop-filter:blur(8.5px) ;
   transform-origin: left;

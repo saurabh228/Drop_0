@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 import gujaratTopojson from './gujarat.json';
+import './Gujarat.css';
 
 const GujaratMap = () => {
   const svgRef = useRef(null);
@@ -42,8 +43,8 @@ const GujaratMap = () => {
 
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
-    const width = 500;
-    const height = 500;
+    const width = 800;
+    const height = 800;
     const projection = d3.geoMercator().fitSize([width, height], gujaratGeojson);
     const pathGenerator = d3.geoPath().projection(projection);
 
@@ -86,7 +87,7 @@ const GujaratMap = () => {
   }, [districtRowNum, tableData]);
 
   return (
-    <div>
+    <div className='Map'>
        <div className='dropdown-container'>
         <label htmlFor="yearDropdown" className="dropdown-button">Dropout Rates for Year</label>
         <select id="yearDropdown" value={filePath} onChange={handleYearChange} className="dropdown-content">
@@ -100,13 +101,16 @@ const GujaratMap = () => {
           <option value="/data/DropRate21_22.json">2021-2022</option>
         </select>
       </div>
+      <div className="size">
       <svg
         ref={svgRef}
-        width="100%"
-        height="100%"
-        viewBox={`0 0 500 500`}
+        width="200%"
+        height="200%"
+        viewBox={`0 0 800 800`}
       ></svg>
       <h3>{district}</h3>
+      </div>
+      
     </div>
   );
 };

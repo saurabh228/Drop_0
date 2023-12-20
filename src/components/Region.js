@@ -1,17 +1,26 @@
 import React from 'react'
 import transition from '../Transition'
 import GujaratMap from './Gujarat';
+import ActionBar from './ActionBar';
+
+
 
 const Region = () => {
   return (
-    <div className='body_container'>
+    <>
+        <ActionBar/>
       
-      <h1>Gujarat Map</h1>
+      <div>
+      
+      <h1 className='PgTitle'>Gujarat Map</h1>
       <div className="mapcontainer">
               <GujaratMap style ={{width : '30%', height :'30%'}} />
       </div>
 
     </div>
+
+    </>
+    
   )
 }
 

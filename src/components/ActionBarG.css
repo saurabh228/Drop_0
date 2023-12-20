@@ -9,11 +9,6 @@
     align-items: center;
   }
 
-  .InsightTitle{
-    padding: 10px;
-    margin-bottom: 10px;
-    
-  }
   .static-column {
     display: flex;
     background: #a1c0cd;
@@ -35,12 +30,11 @@
   
 .TitlePC{
   padding: 25px;
-  margin: 5px;
+  margin: 10px;
   background: rgba(116, 207, 198, 0.204);
   backdrop-filter: blur(6.5px);
   border-radius: 10px;
   border: 1px solid rgba(196, 194, 194, 0.38);
-  width: 20rem;
 }
 
 .TitleIns{

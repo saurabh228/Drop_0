@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from './DataCloverLogo.png';
 import {motion} from 'framer-motion'
-import { duration } from '@material-ui/core';
+
 
 
 const Sidebar = () => {

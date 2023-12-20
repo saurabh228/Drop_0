@@ -1,0 +1,18 @@
+/* Gujarat.css */
+
+.Map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10rem;
+  }
+  .dropdown-button{
+    margin-left: 5rem;
+    align-items: center;
+  }
+  
+  .size {
+    margin: auto;
+  }
+  

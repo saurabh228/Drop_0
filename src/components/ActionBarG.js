@@ -1,12 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from './DataCloverLogo.png';
-import './ActionBar.css';
+import './ActionBarG.css';
 import BestPerformers from './BestPerformers';
 import CriticalDist from './CriticalDist';
-import Interventions from './Interventions';
 
-const ActionBar = () => {
+const ActionBarG = () => {
   return (
     <div className='ActionBar_container'>
       <div className='static-column'>
@@ -17,15 +14,13 @@ const ActionBar = () => {
              <h1>🧠Action Lab</h1>
           </div>
 
-          <div className="TitleIns">
-          <Interventions/>
-           
+          <div className="TitlePC">
+            <BestPerformers/>
+            <CriticalDist/>
           </div>
 
-          <div className="TitlePC">
-            <h1 className='InsightTitle'>Insights</h1>
-           <BestPerformers/>
-            <CriticalDist/>
+          <div className="TitleIns">
+           
           </div>
 
           <div className="side-itemA">
@@ -38,4 +33,4 @@ const ActionBar = () => {
   );
 }
 
-export default ActionBar;
+export default ActionBarG;

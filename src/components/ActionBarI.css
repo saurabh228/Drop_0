@@ -1,4 +1,4 @@
-.ActionBar_container {
+.ABIActionBar_container {
     position: fixed;
     top: 0;
     right: 0;
@@ -9,12 +9,7 @@
     align-items: center;
   }
 
-  .InsightTitle{
-    padding: 10px;
-    margin-bottom: 10px;
-    
-  }
-  .static-column {
+  .ABIstatic-column {
     display: flex;
     background: #a1c0cd;
     width: 26rem;
@@ -33,9 +28,9 @@
     border: 1px solid rgba(196, 194, 194, 0.38);
   }
   
-.TitlePC{
+.ABITitlePC{
   padding: 25px;
-  margin: 5px;
+  margin: 10px;
   background: rgba(116, 207, 198, 0.204);
   backdrop-filter: blur(6.5px);
   border-radius: 10px;
@@ -43,7 +38,7 @@
   width: 20rem;
 }
 
-.TitleIns{
+.ABITitleIns{
   padding: 25px;
   margin: 10px;
   background: rgba(97, 208, 160, 0.505);
@@ -53,7 +48,7 @@
   width: 20rem;
 }
   
-  .action-items {
+  .ABIaction-items {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -61,7 +56,7 @@
     
   }
   
-  .side-itemA {
+  .ABIside-itemA {
     display: flex;
     width: 90%;
     align-items: center;
@@ -71,7 +66,7 @@
     border-radius: 14px;
   }
   
-  .side-link {
+  .ABIside-link {
     padding: 18px 18px;
     margin-top: 1px;
     text-decoration: none;
