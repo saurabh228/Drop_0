@@ -24,6 +24,8 @@
 .mode-buttons button {
   padding: 5px 20px;
   font-size: 16px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   cursor: pointer;
   border: none;
   border-radius: 7px;
