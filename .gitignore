@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+drop_0be/drop_0/__pycache__/
+drop_0be/drop_0/migrations/__pycache__/
+drop_0fe/node_modules/
+drop_0fe/public/data/
+drop_0be/drop_0/management/__pycache__/
+drop_0be/drop_0/management/commands/__pycache__/
+drop_0be/drop_0be/__pycache__/
