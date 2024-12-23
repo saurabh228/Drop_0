@@ -1,0 +1,30 @@
+import { red } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
+
+// A custom theme for this app
+const theme = createTheme({
+  cssVariables: true,
+  palette: {
+    primary: {
+      main: '#556cd6',
+    },
+    secondary: {
+      main: '#19857b',
+    },
+    error: {
+      main: red.A400,
+    },
+  },
+  components: {
+    MuiToolbar: {
+        styleOverrides: {
+            dense: {
+                height: 42,
+                minHeight: 42
+            }
+        }
+    }
+  }
+});
+
+export default theme;

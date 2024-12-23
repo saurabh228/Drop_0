@@ -1,5 +1,6 @@
 import '../styles/tableComponent.css'; 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { Table, TableHead, TableContainer, TableBody, TableRow, TableCell } from '@mui/material';
 
 const TableComponent = ({ onRowHover, tableData }) => {
   const [hoveredRow, setHoveredRow] = useState(null);
@@ -17,9 +18,9 @@ const TableComponent = ({ onRowHover, tableData }) => {
       setHoveredRow(null);
       setClickedRow(null);
     } else {
+      setClickedRow(rowIndex);
       setHoveredRow(rowIndex);
       onRowHover(dataId);
-      setClickedRow(rowIndex);
     }
   };
 
@@ -53,17 +54,17 @@ const TableComponent = ({ onRowHover, tableData }) => {
   };
 
   return (
-    <div>
+    <TableContainer >
       {tableData.length > 0 ? (
-        <table className="custom-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th colSpan={3}>Primary</th>
-              <th colSpan={3}>Higher Primary</th>
-              <th colSpan={3}>Secondary</th>
-            </tr>
-            <tr>
+        <Table className="custom-table" style={{width: 'fit-content' ,marginRight: 'auto', marginLeft: 'auto'}}>
+          <TableHead>
+            <TableRow>
+              <TableCell></TableCell>
+              <TableCell colSpan={3}>Primary</TableCell>
+              <TableCell colSpan={3}>Higher Primary</TableCell>
+              <TableCell colSpan={3}>Secondary</TableCell>
+            </TableRow>
+            <TableRow>
               {[
                 'location',
                 'primary_girls',
@@ -76,33 +77,29 @@ const TableComponent = ({ onRowHover, tableData }) => {
                 'secondary_boys',
                 'secondary_overall',
               ].map((key) => (
-                <th
+                <TableCell
                   key={key}
                   onClick={() => handleSort(key)}
                   className={sortConfig.key === key ? sortConfig.direction : ''}
                 >
-                  {capitalizeFirstLetter(key.includes('_') ? key.split('_')[1] : key)}
-                </th>
+                  {capitalizeFirstLetter(key.includes('_') ? key.split('_').pop() : key)}
+                </TableCell>
               ))}
-            </tr>
-          </thead>
-          <tbody>
+            </TableRow>
+          </TableHead>
+          <TableBody style={{height:'fit-content'}}>
             {sortedTableData.map((item, rowIndex) => (
-              <tr
+              <TableRow
                 key={rowIndex}
                 className={
-                  rowIndex === hoveredRow
-                    ? 'hov-row'
-                    : rowIndex % 2 === 0
-                    ? 'even-row'
-                    : 'odd-row'
+                  rowIndex === hoveredRow ? 'hov-row' : rowIndex % 2 === 0 ? 'even-row' : 'odd-row'
                 }
                 onClick={() => handleRowClick(rowIndex, item.id)}
                 onMouseEnter={() => handleRowHover(rowIndex, item.id)}
               >
-                <td className={item.Location === '_Overall_' ? 'overallRate' : ''}>
+                <TableCell className={item.location === 'All India' ? 'overallRate' : ''} style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>
                   {item.location}
-                </td>
+                </TableCell>
                 {[
                   'primary_girls',
                   'primary_boys',
@@ -114,16 +111,16 @@ const TableComponent = ({ onRowHover, tableData }) => {
                   'secondary_boys',
                   'secondary_overall',
                   ].map((key) => (
-                  <td key={key}>{item[key]}</td>
+                  <TableCell key={key}>{item[key]}</TableCell>
                 ))}
-              </tr>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       ) : (
         <div>Fetching files...</div>
       )}
-    </div>
+    </TableContainer>
   );
 };
 

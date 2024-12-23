@@ -3,10 +3,8 @@
     flex-direction: column;
     align-items: center;
     background-color: #ffffff;
-    margin-top: 50px;
 }
 
 .main-content {
     width: 100%;
-    max-width: 1800px;
 }

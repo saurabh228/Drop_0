@@ -1,38 +1,20 @@
-
 import './App.css';
-// import Sidebar from './components/Sidebar';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './components/Home';
-// import Age from './components/Age';
-// import Gender from './components/Gender';
-// import Caste from './components/Caste';
-// import School from './components/School';
-// import Region from './components/Region';
-// import CastAnalysis from './components/CastAnalysis';
+import { Container, Box } from '@mui/material';
 
 function App() {
-
   const location = useLocation();
 
   return (
-    <div className="App">
-
-        {/* <Sidebar/> */}
-      {/* <Loader/> */}
-
+    <Container maxWidth={false}>
+      <Box className="App" sx={{mx:0, px:0}}>
         <Routes location={location} key={location.pathname}>
-          <Route index element={<Home/>}/>
-          {/* <Route path="/CastAnalysis" element={<CastAnalysis />} /> */}
-          {/* <Route path='/age' element={<Age/>}/> */}
-          {/* <Route path='/gender' element={<Gender/>}/> */}
-          {/* <Route path='/caste' element={<Caste/>}/> */}
-          {/* <Route path='/region' element={<Region/>}/> */}
-          {/* <Route path='/school' element={<School/>}/> */}
-          <Route/>
+          <Route index element={<Home />} />
+          <Route />
         </Routes>
-
-        
-    </div>
+      </Box>
+    </Container>
   );
 }
 
